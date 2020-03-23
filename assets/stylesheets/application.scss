@@ -1,7 +1,41 @@
 body {
-  font-family: Helvetica;
+  color: white;
+  background-color: black;
 }
+
 .app {
   margin-top: 20px;
-  margin-bottom: 20px;
+  // display: flex;
+  .cities {
+    .city {
+      padding: 4px;
+      padding-left: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 30px;
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+  .active-city {
+    // width: 70%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: content;
+    h3 {
+      margin-top: 0;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.list-group-item {
+  background-color: transparent;
+  cursor: pointer;
 }
