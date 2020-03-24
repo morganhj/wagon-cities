@@ -8,6 +8,7 @@ body {
   // display: flex;
   .cities {
     .city {
+      text-align: center;
       padding: 4px;
       padding-left: 10px;
       border: 1px solid #ddd;
@@ -18,10 +19,17 @@ body {
         background-color: white;
         color: black;
       }
+      &.selected {
+        box-shadow: 0 0 20px white;
+        background-color: white;
+        color: black;
+      }
     }
   }
   .active-city {
     // width: 70%;
+    position: fixed;
+    top: 20px;
     padding: 10px 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -39,3 +47,5 @@ body {
   background-color: transparent;
   cursor: pointer;
 }
+
+

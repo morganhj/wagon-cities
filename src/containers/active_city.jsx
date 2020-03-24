@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
-
-const city = { name: 'Paris', address: '16 Villa Gaudelet, 75011 Paris', slug: 'paris' };
+import { connect } from 'react-redux';
 
 class ActiveCity extends Component {
   render() {
-    const url = `https://kitt.lewagon.com/placeholder/cities/${city.slug}`;
+    let selectedCityProps = null;
+    if (this.props.selectedCity) {
+      const url = `https://kitt.lewagon.com/placeholder/cities/${this.props.selectedCity.slug}`;
+      selectedCityProps = (
+        <div className="col-12 col-lg-8">
+          <div className="active-city">
+            <h1>{this.props.selectedCity.name}</h1>
+            <p>{this.props.selectedCity.address}</p>
+            <img src={url} alt="" />
+          </div>
+        </div>);
+    }
     return (
-      <div className="col-12 col-lg-8">
-        <div className="active-city">
-          <h1>{city.name}</h1>
-          <p>{city.address}</p>
-          <img src={url} alt="" />
-        </div>
-      </div>
+      selectedCityProps
     );
   }
 }
 
-export default ActiveCity;
+function mapStateToProps(state) {
+  return {
+    selectedCity: state.selectedCity
+  };
+}
+
+export default connect(mapStateToProps)(ActiveCity);
